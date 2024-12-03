@@ -10,4 +10,6 @@ def contactpage(request):
     return render(request, 'contact.html')
     #return HttpResponse("Контакти")
 
+def newspage(request):
+    return render(request, 'news.html')
 
