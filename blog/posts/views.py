@@ -1,22 +1,22 @@
 from django.http import HttpResponse
 from django.template import loader
 
-from .models import News
+from .models import Post
 
 # Create your views here.
 def news(request):
-    mynews = News.objects.all().values()
+    myposts = Post.objects.all().values()
     template = loader.get_template('news.html')
     context = {
-        'mynews': mynews,
+        'myposts': myposts,
     }
     return HttpResponse(template.render(context, request))
 
 def details(request, id):
-  mynews = News.objects.get(id=id)
+  mypost = Post.objects.get(id=id)
   template = loader.get_template('details.html')
   context = {
-    'mynews': mynews,
+    'mypost': mypost,
   }
   return HttpResponse(template.render(context, request))
 
