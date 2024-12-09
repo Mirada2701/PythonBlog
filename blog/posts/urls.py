@@ -9,3 +9,4 @@ urlpatterns = [
     path('news/details/<int:id>', views.details, name='details'),
 
 ]
+

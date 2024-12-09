@@ -15,7 +15,7 @@
           {% for x in myposts %}
           <div class="col">
               <div class="card h-100">
-                  <img src="{{ x.image_url }}" class="card-img-top" alt="{{ x.title }}">
+                  <img src="/posts/media/{{x.image_url }}" class="card-img-top" >
                   <div class="card-body">
                       <h5 class="card-title">{{ x.title }}</h5>
                       <p class="card-text">{{ x.content }}</p>
