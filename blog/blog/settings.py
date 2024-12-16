@@ -84,11 +84,11 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # MariaDB uses the MySQL backend
-        'NAME': 'pd211',          # Replace with your database name
-        'USER': 'root',               # Replace with your MariaDB username
-        'PASSWORD': '0121',           # Replace with your MariaDB password
-        'HOST': 'localhost',                   # Replace with your database host (e.g., 127.0.0.1)
-        'PORT': '3306',                        # Default MariaDB port
+        'NAME': 'django_correctly',          # Replace with your database name
+        'USER': 'django_correctly',               # Replace with your MariaDB username
+        'PASSWORD': '0fa2a919ec0f66fa218a2882c2be263128793403',           # Replace with your MariaDB password
+        'HOST': 'cvdkb.h.filess.io',                   # Replace with your database host (e.g., 127.0.0.1)
+        'PORT': '3305',                        # Default MariaDB port
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  # Optional, ensures strict SQL mode
         },

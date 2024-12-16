@@ -21,3 +21,5 @@ py manage.py shell
 >>> n.image_url = "https://img.tsn.ua/cached/361/tsn-135859377404ec64163c97d964721c31/thumbs/1036x648/90/79/ff3a43c14a7f3cfde426d70f9c7c7990.jpeg"
 >>> n.save()
 >>> News.objects.all().values() 
+
+Global Database ---  filess.io
