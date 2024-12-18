@@ -1,9 +1,11 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.contrib.auth.decorators import login_required
 
 from .models import Post
 
 # Create your views here.
+@login_required(login_url='users:login')
 def news(request):
     myposts = Post.objects.all().values()
     template = loader.get_template('news.html')
@@ -20,6 +22,3 @@ def details(request, id):
   }
   return HttpResponse(template.render(context, request))
 
-def main(request):
-  template = loader.get_template('main.html')
-  return HttpResponse(template.render())

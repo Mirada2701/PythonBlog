@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #14293c; /* Темно-синій фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form {
+    background: #fff; /* Білий фон для форми */
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Заголовок */
+.register-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #5d175c; /* Фіолетовий */
+}
+
+/* Стилі заголовків полів */
+h4 {
+    margin: 10px 0 5px;
+    font-size: 14px;
+    color: #5d175c; /* Фіолетовий */
+    text-align: left;
+}
+
+/* Інпут поля */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background: #ece7e7; /* Світло-сірий фон */
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input:focus {
+    background: #e0dcdc; /* Трохи темніший фон при фокусі */
+}
+
+/* Кнопка створення */
+button {
+    background-color: #14293c; /* Темно-синій фон */
+    color: #fff; /* Білий текст */
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0f1e2a; /* Трохи темніший синій при наведенні */
+}
+
+/* Посилання для входу */
+.message {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+}
+
+.message a {
+    color: #5d175c; /* Фіолетовий */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.message a:hover {
+    text-decoration: underline;
+}

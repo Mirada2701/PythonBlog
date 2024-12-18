@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{%block title%}
+ Login
+ {%endblock%}
+
+ {%block content%}
+
+ {% load static %}
+
+ <link rel="stylesheet"  href="{% static 'bootstrap/css/login.css' %}">
+
+    <div class="login-page">
+        <div class="form">
+          <form method="POST" action="">
+            {% csrf_token %}
+            <h3 class="login-title">ЛОГІН</h3>
+            <div class="input-group mb-3">
+              <input type="text" name="username" placeholder="Псевдонім користувача..." class="form-control">
+            </div>
+            <div class="input-group mb-2">
+                <input type="password" name="password" placeholder="Пароль..." class="form-control" >
+            </div>
+            <button type="submit"> Ввійти </button>
+            <p class="message">Ще не маєш аккаунту? <a href="{% url 'users:register' %}">Реєстрація</a></p>
+          </form>
+        </div>
+        {% for message in messages %}
+    <p class= "text-center">{{message}}</p>
+  {% endfor %}
+      </div>
+ {%endblock%}

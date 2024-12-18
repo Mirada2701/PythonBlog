@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{%block title%}
+ Register
+ {%endblock%}
+
+ {%block content%}
+ 
+ {% load static %}
+
+ <link rel="stylesheet"  href="{% static 'bootstrap/css/register.css' %}">
+ 
+ <div class="register-page">
+ 
+     <div class="form">
+       <form class="register-form" method="POST" action="">
+         {% csrf_token %}
+         <h2 class="register-title">РЕЄСТРАЦІЯ</h3>
+         <h4>Псевдонім користувача</h4>
+         {{form.username}}
+         <h4>Елетронна пошта</h4>
+         {{form.email}}
+         <h4>Пароль</h4>
+         {{form.password1}}
+         <h4>Підтвердження пароля</h4>
+         {{form.password2}}
+         <button type="submit"> Створити </button>
+         <p class="message">Вже зареєстровані? <a href={% url 'users:login' %}> Вхід</a></p>
+         </form>
+         {{ form.errors }}
+     </div>
+ 
+   </div>
+ {%endblock%}

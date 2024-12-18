@@ -1,0 +1,28 @@
+.content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #2c3e50; /* Темно-синій */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Стилі для посилань */
+.content a {
+    display: inline-block;
+    font-size: 18px;
+    color: #5d175c; /* Фіолетовий */
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    border: 2px solid #5d175c;
+    border-radius: 25px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.content a:hover {
+    background-color: #5d175c;
+    color: #fff;
+    text-decoration: none;
+}
