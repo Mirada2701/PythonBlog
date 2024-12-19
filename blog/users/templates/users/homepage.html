@@ -9,13 +9,11 @@
  {% load static %}
 
  <link rel="stylesheet"  href="{% static 'bootstrap/css/home.css' %}">
-
-
+ 
  <div class="content">
     <h1>Ласкаво просимо</h1>
     <a class="register-link mr-4" href="{% url 'users:register' %}">Реєстрація</a>
     <a class="login-link" href="{% url 'users:login' %}">Логін</a>
 </div>
-
 
 {%endblock%}

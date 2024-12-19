@@ -16,7 +16,7 @@
     <header data-bs-theme="dark">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div class="container">
-            <a class="navbar-brand" href="/" aria-label="На головну">Головна</a>
+            <a class="navbar-brand" href="/">Головна</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,14 +25,33 @@
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/posts">Новини</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{% url "posts:create" %}">Додати</a>
+                </li>
+                {% endif %}
                 <li class="nav-item">
                   <a class="nav-link" href="/contact">Контакти</a>
                 </li>
               </ul>
-              <ul class="navbar-nav">
+              <ul class="navbar-nav">                
+                {% if user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link" href="/users/home">Вхід/Реєстрація</a>
+                  <span class="nav-link text-light">Привіт {{ user.username }}</span>
                 </li>
+                <li class="nav-item">
+                  <form action="{% url 'users:logout' %}" method="post" style="display:inline;">
+                      {% csrf_token %}
+                      <button type="submit" class="nav-link btn btn-link text-decoration-none">
+                          Вихід <i class="bi bi-box-arrow-right"></i>
+                      </button>
+                  </form>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/users/home">Вхід/Реєстрація</a>
+                </li>
+                {% endif %}
               </ul>
             </div>
           </div>

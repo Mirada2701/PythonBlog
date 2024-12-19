@@ -22,9 +22,10 @@ def login_page(request):
 def home_page(request):
     return render(request, 'users/homepage.html')
 
-def logout_page(request):
-    logout(request)
-    return redirect('users:login')
+def logout_view(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect("posts:news")
 
 def register_page(request):
     if request.method != 'POST':
@@ -33,7 +34,7 @@ def register_page(request):
         form = CustomUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('users:login')
+            return redirect('posts:news')
 
     context = {'form': form}
 
