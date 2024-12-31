@@ -1,17 +1,34 @@
-.content h1 {
-    font-size: 48px;
-    font-weight: bold;
-    color: #2c3e50; /* Темно-синій */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    text-align: center;
+.content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content h3{
+    font-size: 32px;
 }
 
-/* Стилі для посилань */
+.content p{
+    width: 70%;
+    margin: auto;
+}
+
+.swiper{
+    border: 2px solid #5d175c;
+    border-radius: 25px;
+    height: 20vh;
+    background-color: lightgoldenrodyellow;
+    box-shadow: 10px 10px 5px gray;
+}
+
+.swiper-slide{
+    margin-top: 7vh;
+}
+
 .content a {
     display: inline-block;
-    font-size: 18px;
-    color: #5d175c; /* Фіолетовий */
+    font-size: 32px;
+    color: #5d175c;
     text-decoration: none;
     font-weight: bold;
     margin: 0 10px;

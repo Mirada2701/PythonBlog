@@ -9,11 +9,37 @@
  {% load static %}
 
  <link rel="stylesheet"  href="{% static 'bootstrap/css/home.css' %}">
- 
+ <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
  <div class="content">
-    <h1>Ласкаво просимо</h1>
-    <a class="register-link mr-4" href="{% url 'users:register' %}">Реєстрація</a>
-    <a class="login-link" href="{% url 'users:login' %}">Логін</a>
+
+ <div class="swiper">
+    <div class="swiper-wrapper text-center">
+        <div class="swiper-slide">
+            <h3>Ласкаво просимо!</h3>
+        </div>
+        <div class="swiper-slide">
+            <p>Зареєструйтесь, щоб отримати доступ до всіх функцій нашого сайту, або увійдіть, якщо у вас вже є обліковий запис.</p> 
+        </div>
+        <div class="swiper-slide">
+            <a class="mr-4" href="{% url 'users:register' %}">Реєстрація</a>
+            <a href="{% url 'users:login' %}">Логін</a>
+        </div>
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
 </div>
 
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
 {%endblock%}

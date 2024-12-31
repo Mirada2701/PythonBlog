@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% load widget_tweaks %}
+
 {%block title%}
  Register
  {%endblock%}
@@ -15,20 +17,34 @@
      <div class="form">
        <form class="register-form" method="POST" action="">
          {% csrf_token %}
-         <h2 class="register-title">РЕЄСТРАЦІЯ</h3>
-         <h4>Псевдонім користувача</h4>
-         {{form.username}}
-         <h4>Елетронна пошта</h4>
-         {{form.email}}
-         <h4>Ім’я</h4>
-         {{form.first_name}}
-         <h4>Прізвище</h4>
-         {{form.last_name}}
-         <h4>Пароль</h4>
-         {{form.password1}}
-         <h4>Підтвердження пароля</h4>
-         {{form.password2}}
-         <button type="submit"> Створити </button>
+         <h2 class="text-center">РЕЄСТРАЦІЯ</h3>
+          <div class="mb-3">
+            <label for="id_username" class="form-label">Псевдонім</label>
+            {{form.username|add_class:"form-control"|attr:"placeholder:Введіть нікнейм"}}
+          </div>
+          <div class="mb-3">
+            <label for="id_email" class="form-label">Електронна пошта</label>
+            {{form.email|add_class:"form-control"|attr:"placeholder:smsm@gmail.com"}}
+          </div>
+          <div class="mb-3">
+            <label for="id_first_name" class="form-label">Ім’я</label>
+            {{form.first_name|add_class:"form-control"}}
+          </div>
+          <div class="mb-3">
+            <label for="id_last_name" class="form-label">Прізвище</label>
+            {{form.last_name|add_class:"form-control"}}
+          </div>
+          <div class="mb-3">
+            <label for="id_password1" class="form-label">Пароль</label>
+            {{form.password1|add_class:"form-control"}}
+          </div>
+          <div class="mb-3">
+            <label for="id_password2" class="form-label">Підтвердження пароля</label>
+            {{form.password2|add_class:"form-control"}}
+          </div>
+         <div class="but">
+          <button class="btn btn-outline-success" type="submit"> Зареєструватись </button>
+        </div>
          <p class="message">Вже зареєстровані? <a href={% url 'users:login' %}> Вхід</a></p>
          </form>
          {{ form.errors }}

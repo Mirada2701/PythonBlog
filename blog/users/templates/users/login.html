@@ -14,14 +14,16 @@
         <div class="form">
           <form method="POST" action="">
             {% csrf_token %}
-            <h3 class="login-title">ЛОГІН</h3>
+            <h3 class="text-center">ЛОГІН</h3>
             <div class="input-group mb-3">
               <input type="text" name="username" placeholder="Псевдонім користувача..." class="form-control">
             </div>
             <div class="input-group mb-2">
                 <input type="password" name="password" placeholder="Пароль..." class="form-control" >
             </div>
-            <button type="submit"> Ввійти </button>
+            <div class="but">
+              <button class="btn btn-outline-success"  type="submit"> Ввійти </button>
+            </div>
             <p class="message">Ще не маєш аккаунту? <a href="{% url 'users:register' %}">Реєстрація</a></p>
           </form>
         </div>

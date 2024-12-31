@@ -34,7 +34,7 @@ def register_page(request):
         form = CustomUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('posts:news')
+            return redirect('users:login')
 
     context = {'form': form}
 
