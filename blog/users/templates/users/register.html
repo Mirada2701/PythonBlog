@@ -15,7 +15,7 @@
  <div class="register-page">
  
      <div class="form">
-       <form class="register-form" method="POST" action="">
+       <form id="register-form" class="register-form" method="POST" action="">
          {% csrf_token %}
          <h2 class="text-center">РЕЄСТРАЦІЯ</h3>
           <div class="mb-3">
@@ -51,4 +51,24 @@
      </div>
  
    </div>
+
+   <script>
+      const form = document.getElementById('register-form');
+      const password = document.getElementById('id_password1');
+      const confirmPassword = document.getElementById('id_password2');
+    
+      form.addEventListener('submit', function (event) {
+        if (password.value !== confirmPassword.value) {
+          confirmPassword.setCustomValidity("Паролі не співпадають.");
+        } else {
+          confirmPassword.setCustomValidity("");
+        }
+        
+  
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      });
+   </script>
  {%endblock%}
