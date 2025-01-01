@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Мій кабінет
+{% endblock %}
+
+
+{% block content %}
+  <h1>Мої пости</h1>
+
+  {% if posts %}
+  {% for post in posts %}
+    <div>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.content }}</p>
+      <a href="edit/{{ post.id }}" class="btn btn-primary">Редагувати</a>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-post-id="{{ post.id }}">
+        Видалити
+      </button>
+    </div>
+    <hr>
+  {% endfor %}
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Підтвердження видалення</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Ви впевнені, що хочете видалити цей пост?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+          <form id="deleteForm" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Видалити</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <p>Ви ще не створили жодного поста.</p>
+{% endif %}
+
+
+  <p>Check out all our <a href="/posts">news</a></p>
+
+  <script>
+    const deleteModal = document.getElementById('deleteModal');
+    deleteModal.addEventListener('show.bs.modal', function (event) {
+      const button = event.relatedTarget;
+      const postId = button.getAttribute('data-post-id');
+  
+      const deleteForm = document.getElementById('deleteForm');
+      deleteForm.action = `/posts/delete/${postId}/`; 
+    });
+  </script>
+{% endblock %}

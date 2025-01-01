@@ -33,8 +33,8 @@ def register_page(request):
     else:
         form = CustomUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('users:login')
+            login(request,form.save())
+            return redirect('posts:news')
 
     context = {'form': form}
 
