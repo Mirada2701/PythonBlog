@@ -4,29 +4,65 @@
    Новини
     {%endblock%}
 
+    {%load static%}
+
     {%block content%}
     
-    <div class="text-center mt-3">
+    <link rel="stylesheet"  href="{% static 'bootstrap/css/news.css' %}">   
+
+    <div class="text-start mt-3">
       <p><a class="btn btn-primary" href="/">Головна</a></p>
-      <h1 class="text-center">Новини</h1>
-  
-      <!-- Адаптивна сітка для карток -->
+      <h1>Новини</h1>
+
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-          {% for x in posts %}
+          {% for x in page_obj %}
           <div class="col">
               <div class="card h-100">
-                  <img src="/posts/media/{{x.image_url }}" class="card-img-top" >
+                  <img src="/posts/media/{{x.image_url }}" class="card-img-top img-fluid fixed-size">
                   <div class="card-body">
                       <h5 class="card-title">{{ x.title }}</h5>
-                      <p class="card-text">{{ x.content }}</p>
                       <p class="card-text"><small class="text-muted">{{ x.created_at }}</small></p>
                       <p class="card-text"><small class="text-muted">Автор: {{ x.created_by.first_name }} {{ x.created_by.last_name }}</small></p>
-                      <a href="details/{{ x.id }}" class="btn btn-primary">Детальніше</a>
+                      <a href="details/{{ x.id }}" class="btn btn-outline-primary">Детальніше</a>
                   </div>
               </div>
           </div>
           {% endfor %}
       </div>
+      
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center mt-4">
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <span class="page-link">&laquo;</span>
+          </li>
+          {% endif %}
+      
+          {% for num in page_obj.paginator.page_range %}
+          <li class="page-item {% if num == page_obj.number %}active{% endif %}">
+            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+          </li>
+          {% endfor %}
+      
+          {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <span class="page-link">&raquo;</span>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
     </div>
     {%endblock%}
     

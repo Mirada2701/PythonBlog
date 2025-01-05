@@ -1,0 +1,32 @@
+.create-div{
+    display: flex;
+    margin-top: 15vh;
+    gap: 5vw;
+}
+
+.form-div{
+    flex-basis: 60%;
+    height: 80vh;
+    border: 2px solid black;
+    border-radius: 25%;
+    background: linear-gradient(to right, rgb(198, 232, 10), blue)
+}
+
+.user-post{
+    flex-basis: 30%;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 35vw;
+}
+
+.beige{
+    background-color: beige;
+}
